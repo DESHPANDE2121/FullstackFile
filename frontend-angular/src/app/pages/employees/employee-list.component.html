@@ -1,0 +1,30 @@
+<h3>Employees</h3>
+<app-employee-form (saved)="load()"></app-employee-form>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Name</th><th>Email</th><th>Department</th><th>Salary</th><th>Actions</th>
+  </tr>
+  <tr *ngFor="let e of employees">
+    <td>{{e.fullName}}</td>
+    <td>{{e.email}}</td>
+    <td>{{e.department}}</td>
+    <td>{{e.salary}}</td>
+    <td>
+      <button (click)="startEdit(e)">Edit</button>
+      <button (click)="remove(getId(e))">Delete</button>
+    </td>
+  </tr>
+</table>
+
+<div *ngIf="editing" class="card" style="margin-top:14px;">
+  <h4>Edit Employee</h4>
+  <input [(ngModel)]="editing.fullName" placeholder="Full Name" />
+  <input [(ngModel)]="editing.email" placeholder="Email" />
+  <input [(ngModel)]="editing.department" placeholder="Department" />
+  <input [(ngModel)]="editing.salary" type="number" placeholder="Salary" />
+  <div style="margin-top:10px;">
+    <button (click)="saveEdit()">Save</button>
+    <button (click)="cancelEdit()">Cancel</button>
+  </div>
+</div>

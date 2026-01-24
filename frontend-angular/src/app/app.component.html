@@ -1,0 +1,18 @@
+<div class="app-shell">
+  <div class="topbar">
+    <div>
+      <strong>HR Management</strong>
+    </div>
+
+    <div>
+      <a routerLink="/login" routerLinkActive="active" *ngIf="!auth.isLoggedIn()">Login</a>
+      <a routerLink="/signup" routerLinkActive="active" *ngIf="!auth.isLoggedIn()">Sign up</a>
+      <a routerLink="/employees" routerLinkActive="active" *ngIf="auth.isLoggedIn()">Employees</a>
+      <button class="btn secondary" *ngIf="auth.isLoggedIn()" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <router-outlet></router-outlet>
+  </div>
+</div>

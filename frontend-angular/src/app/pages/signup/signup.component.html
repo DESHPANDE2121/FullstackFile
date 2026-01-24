@@ -1,0 +1,28 @@
+<h2 class="form-title">Create account</h2>
+<p class="helper">Sign up to manage employees.</p>
+
+<form class="form" [formGroup]="form" (ngSubmit)="submit()">
+  <label>
+    Full name
+    <input class="input" placeholder="Your name" formControlName="name" />
+  </label>
+  <div class="error" *ngIf="isInvalid('name')">Name is required.</div>
+
+  <label>
+    Email
+    <input class="input" placeholder="you@example.com" formControlName="email" />
+  </label>
+  <div class="error" *ngIf="isInvalid('email')">Please enter a valid email.</div>
+
+  <label>
+    Password
+    <input class="input" placeholder="Create a password" type="password" formControlName="password" />
+  </label>
+  <div class="error" *ngIf="isInvalid('password')">Password is required.</div>
+
+  <button class="btn" type="submit" [disabled]="loading">
+    {{ loading ? 'Creating...' : 'Create account' }}
+  </button>
+
+  <a routerLink="/login">Already have an account? Back to login</a>
+</form>

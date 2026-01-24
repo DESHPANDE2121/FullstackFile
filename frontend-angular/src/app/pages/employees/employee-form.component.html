@@ -1,0 +1,8 @@
+<h4>Create Employee</h4>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input placeholder="Full Name" formControlName="fullName" />
+  <input placeholder="Email" formControlName="email" />
+  <input placeholder="Department" formControlName="department" />
+  <input placeholder="Salary" type="number" formControlName="salary" />
+  <button type="submit">Create</button>
+</form>
